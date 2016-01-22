@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+  head
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='/css/signin.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    style.
+      .modal-body {
+      margin-bottom: 700px
+      }
+  body
+    .bs-example
+      // Button HTML (to Trigger Modal)
+      ul
+       - tasks.forEach(function(task) {
+         li
+
+
+           a(href="/tasks/" + encodeURIComponent(task.title), data-toggle='modal', data-target='#myModal') 
+            = task.title
+
+       - });
+
+      #myModal.modal.fade
+        .modal-dialog
+          .modal-content

@@ -1,0 +1,19 @@
+h1= task.title
+
+div!= task.body
+
+hr
+
+p
+  span Author:
+  &nbsp;
+  a(href="/users/" + encodeURIComponent(task.author.username))= task.author.full_name
+
+P
+  form(action="/tasks/" + encodeURIComponent(task.title), method="POST")
+    input(name="_method", type="hidden", value="DELETE")
+    input(type="submit", value="Delete")
+P
+  a(href="/tasks/edit/"+encodeURIComponent(task.title)) EDIT
+p
+  a(href="/tasks") Back to all tasks
